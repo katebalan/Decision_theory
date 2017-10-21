@@ -1,4 +1,4 @@
-import math
+# laboratory work #3 for Decision theory
 
 train_document = open('1.txt', 'r')
 
@@ -7,7 +7,7 @@ for i in train_document:
     for box in i.split():
         boxes.append(int(box))
 
-
+train_document.close()
 
 print "********"
 print "DATA: {}".format(boxes)
