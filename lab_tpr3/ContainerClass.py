@@ -1,10 +1,8 @@
 class Container:
-    container_weight = 0
-    container = []
 
-    def __init__(self, container):
-        self.container_weight = container
-        self.container.append(container)
+    def __init__(self):
+        self.container_weight = 0
+        self.container = []
 
     def add(self, new_container):
         self.container_weight += new_container
@@ -15,7 +13,3 @@ class Container:
 
     def printContainer(self):
         print "Container({}): {}".format(self.container_weight, self.container)
-
-
-document = open('1.txt', 'r')
-
