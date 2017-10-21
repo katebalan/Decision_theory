@@ -118,4 +118,3 @@ for box in boxes:
 
 print "********"
 print "BFA: {}".format(containers)
-# https: // github.com / VladLevochko / tpr / blob / master / lab3.ipynb
