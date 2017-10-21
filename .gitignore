@@ -1,3 +1,15 @@
+# environment
+*.*~
+*/.idea/workspace.xml
+*/.idea/*
+*/nbproject/*
+
+# environment
+*.*~
+.idea/workspace.xml
+.idea/*
+/nbproject/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
