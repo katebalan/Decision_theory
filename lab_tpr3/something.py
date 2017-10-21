@@ -17,6 +17,7 @@ containers_count = 0
 container_capacity = 100
 sum_container = 0
 
+# Next Fit Algorithm
 for box in boxes:
     sum_container += int(box)
     if sum_container <= container_capacity:
@@ -35,6 +36,7 @@ containers = [[]]
 containers_count = 0
 containers_weight = [0]
 
+# First Fit Algorithm
 for box in boxes:
     if (containers_weight[containers_count] + box) <= container_capacity:
         containers[containers_count].append(box)
@@ -64,6 +66,7 @@ containers = [[]]
 containers_count = 0
 containers_weight = [0]
 
+# Worst Fit Algorithm
 for box in boxes:
     if (containers_weight[containers_count] + box) <=container_capacity:
         containers[containers_count].append(box)
@@ -88,6 +91,7 @@ containers = [[]]
 containers_count = 0
 containers_weight = [0]
 
+# Best Fit Algorithm
 for box in boxes:
     if (containers_weight[containers_count] + box) <= container_capacity:
         containers[containers_count].append(box)

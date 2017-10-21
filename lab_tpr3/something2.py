@@ -15,6 +15,7 @@ containers = []
 containers.append(Container())
 container_capacity = 100
 
+# Next Fit Algorithm
 for box in boxes:
     if containers[len(containers) - 1].getContainerWeight() + box <= container_capacity:
         containers[len(containers) - 1].add(box)
@@ -23,6 +24,6 @@ for box in boxes:
         containers[len(containers) - 1].add(box)
 
 print "********"
-print "NFA:"
+print "Next Fit Algorithm:"
 for container in containers:
     container.printContainer()
