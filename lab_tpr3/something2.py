@@ -14,8 +14,15 @@ print "DATA: {}".format(boxes)
 containers = []
 containers.append(Container())
 container_capacity = 100
-print containers[0].printContainer()
 
 for box in boxes:
     if containers[len(containers) - 1].getContainerWeight() + box <= container_capacity:
-        pass
+        containers[len(containers) - 1].add(box)
+    else:
+        containers.append(Container())
+        containers[len(containers) - 1].add(box)
+
+print "********"
+print "NFA:"
+for container in containers:
+    container.printContainer()
