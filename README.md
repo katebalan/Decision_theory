@@ -1,5 +1,4 @@
 # Decision_theory
-The problem of packing in containers
 
 ## Lab 3
 The problem of packing in containers
