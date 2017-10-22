@@ -33,12 +33,14 @@ containers = []
 containers.append(Container())
 
 for box in boxes:
-    if containers[len(containers) - 1].getContainerWeight() + box <= container_capacity:
+    if containers[len(containers) - 1].getContainerWeight() \
+            + box <= container_capacity:
         containers[len(containers) - 1].add(box)
     else:
         placed = False
         for i in range(len(containers) - 1):
-            if containers[len(containers) - 1].getContainerWeight() + box <= container_capacity:
+            if containers[i].getContainerWeight() \
+                    + box <= container_capacity:
                 containers[i].add(box)
                 placed = True
                 break
