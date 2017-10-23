@@ -62,12 +62,19 @@ for box in boxes:
             + box <= container_capacity:
         containers[len(containers) - 1].add(box)
     else:
-        min_weight = containers[0].getContainerWeight()
-        count = 0
-        for i in range(1,len(containers)):
+        min_weight = containers[len(containers) - 1].getContainerWeight()
+        count = -1
+        for i in range(0,len(containers) - 1):
             if containers[i].getContainerWeight() < min_weight:
                 min_weight = containers[i].getContainerWeight()
-        print min_weight
+                count = i
+        # print min_weight
+        if (min_weight + box) <= container_capacity:
+            containers[count].add(box)
+        else:
+            containers.append(Container())
+            containers[len(containers) - 1].add(box)
+
 
 print "********"
 print "Worst Fit Algorithm:"
