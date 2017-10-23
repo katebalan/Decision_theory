@@ -80,3 +80,14 @@ print "********"
 print "Worst Fit Algorithm:"
 for container in containers:
     container.printContainer()
+
+# Best Fit Algorithm
+containers = []
+containers.append(Container())
+
+for box in boxes:
+    if containers[len(containers) - 1] \
+            + boxes <= container_capacity:
+        containers[len(containers)].add(box)
+    else:
+        placed = false
