@@ -52,3 +52,24 @@ print "********"
 print "First Fit Algorithm:"
 for container in containers:
     container.printContainer()
+
+# Worst Fit Algorithm
+containers = []
+containers.append(Container())
+
+for box in boxes:
+    if containers[len(containers) - 1].getContainerWeight() \
+            + box <= container_capacity:
+        containers[len(containers) - 1].add(box)
+    else:
+        min_weight = containers[0].getContainerWeight()
+        count = 0
+        for i in range(1,len(containers)):
+            if containers[i].getContainerWeight() < min_weight:
+                min_weight = containers[i].getContainerWeight()
+        print min_weight
+
+print "********"
+print "Worst Fit Algorithm:"
+for container in containers:
+    container.printContainer()
