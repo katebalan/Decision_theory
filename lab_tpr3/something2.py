@@ -1,17 +1,20 @@
 # laboratory work #3 for Decision theory
 # with class Container
 
+import copy
 from ContainerClass import Container
 
 def max_container(containers):
     container_count = len(containers) - 1
+    max_index = container_count
     max_weight = containers[container_count].getContainerWeight()
     for i in range(container_count - 1):
-       if containers[i].getContainerWeight() > max_weight:
-           max_weight = containers[i].getContainerWeight()
+        if containers[i].getContainerWeight() > max_weight:
+            max_weight = containers[i].getContainerWeight()
+            max_index = i
 
-    print "Max_weight: {}".format(max_weight)
-    return max_weight
+    print "Max_weight: {}, {}".format(max_weight, max_index)
+    return max_weight, max_index
 
 document = open('1.txt', 'r')
 
@@ -101,6 +104,7 @@ for box in boxes:
         containers[len(containers) - 1].add(box)
     else:
         placed = False
-        max_box = max_container(containers)
+        copy_containers = copy.deepcopy(containers)
+        max_box = max_container(copy_containers)
 
 
