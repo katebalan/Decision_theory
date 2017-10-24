@@ -13,9 +13,3 @@ class Container:
 
     def printContainer(self):
         print "Container({}): {}".format(self.container_weight, self.container)
-
-def max_container(containers):
-    container_count = len(containers) - 1
-    max_weight = containers[container_count].getContainerWeight()
-   for i in range(container_count - 1): -->FUCK FUCK
-       pass

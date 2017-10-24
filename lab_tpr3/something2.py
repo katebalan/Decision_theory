@@ -3,6 +3,16 @@
 
 from ContainerClass import Container
 
+def max_container(containers):
+    container_count = len(containers) - 1
+    max_weight = containers[container_count].getContainerWeight()
+    for i in range(container_count - 1):
+       if containers[i].getContainerWeight() > max_weight:
+           max_weight = containers[i].getContainerWeight()
+
+    print "Max_weight: {}".format(max_weight)
+    return max_weight
+
 document = open('1.txt', 'r')
 
 container_capacity = 100
@@ -86,8 +96,11 @@ containers = []
 containers.append(Container())
 
 for box in boxes:
-    if containers[len(containers) - 1] \
-            + boxes <= container_capacity:
-        containers[len(containers)].add(box)
+    if containers[len(containers) - 1].getContainerWeight() \
+            + box <= container_capacity:
+        containers[len(containers) - 1].add(box)
     else:
-        placed = false
+        placed = False
+        max_box = max_container(containers)
+
+
