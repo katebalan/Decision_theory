@@ -9,6 +9,8 @@ for i in train_document:
 
 train_document.close()
 
+boxes = sorted(boxes, reverse=True)
+
 print "********"
 print "DATA: {}".format(boxes)
 
