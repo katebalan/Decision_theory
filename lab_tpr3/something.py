@@ -1,6 +1,6 @@
 # laboratory work #3 for Decision theory
 
-train_document = open('1.txt', 'r')
+train_document = open('123.txt', 'r')
 
 boxes = []
 for i in train_document:
