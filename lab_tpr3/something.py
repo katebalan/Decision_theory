@@ -89,6 +89,7 @@ for box in boxes:
         containers_weight[containers_count] += box
     else:
         min_weight = min(containers_weight)
+        comparison_count += len(containers_weight)
         min_index = containers_weight.index(min_weight)
         # print "Min index: {}".format(min_index)
         comparison_count += 1
@@ -156,6 +157,8 @@ comparison_count = 0
 best_fit = []
 
 for box in boxes:
+    # print containers_weight
+    comparison_count += 1
     if (containers_weight[containers_count] + box) <= container_capacity:
         containers[containers_count].append(box)
         containers_weight[containers_count] += box
@@ -174,6 +177,7 @@ for box in boxes:
             containers_weight.append(box)
         else:
             max_weight = max(best_fit)
+            comparison_count += len(best_fit)
             max_index = containers_weight.index(max_weight)
 
             containers[max_index].append(box)
@@ -184,4 +188,3 @@ print "********"
 print "BFA: {}".format(containers)
 print "Comparations: {}".format(comparison_count)
 print "Conteiners: {}".format(len(containers))
-
