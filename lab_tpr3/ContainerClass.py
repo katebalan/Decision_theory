@@ -11,5 +11,8 @@ class Container:
     def getContainerWeight(self):
         return self.container_weight
 
+    def setContainerWeightToNull(self):
+        self.container_weight = 0
+
     def printContainer(self):
         print "Container({}): {}".format(self.container_weight, self.container)
