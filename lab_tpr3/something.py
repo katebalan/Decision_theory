@@ -122,3 +122,35 @@ for box in boxes:
 
 print "********"
 print "BFA: {}".format(containers)
+
+# Best Fit Algorithm
+containers = [[]]
+containers_count = 0
+containers_weight = [0]
+best_fit = []
+
+for box in boxes:
+    if (containers_weight[containers_count] + box) <= container_capacity:
+        containers[containers_count].append(box)
+        containers_weight[containers_count] += box
+    else:
+        max_weight = 0
+        best_fit = []
+        for iter in range(containers_count):
+            if containers_weight[iter] + box <= container_capacity:
+                best_fit.append(containers_weight[iter])
+        if not best_fit:
+            containers.append([])
+            containers_count += 1
+            containers[containers_count].append(box)
+            containers_weight.append(box)
+        else:
+            max_weight = max(best_fit)
+            max_index = containers_weight.index(max_weight)
+
+            containers[max_index].append(box)
+            containers_weight[max_index] += box
+
+
+print "********"
+print "BFA: {}".format(containers)
