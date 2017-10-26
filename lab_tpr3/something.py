@@ -106,52 +106,53 @@ print "WFA: {}".format(containers)
 print "Comparations: {}".format(comparison_count)
 print "Conteiners: {}".format(len(containers))
 
+# containers = [[]]
+# containers_count = 0
+# containers_weight = [0]
+# comparison_count = 0
+
+# Best Fit Algorithm
+# for box in boxes:
+#     comparison_count += 1
+#     if (containers_weight[containers_count] + box) <= container_capacity:
+#         containers[containers_count].append(box)
+#         containers_weight[containers_count] += box
+#     else:
+#         placed = False
+#         find_max = list(containers_weight)
+#         find_max[containers_count] = 0
+#         # print find_max
+#         for iter in range(containers_count):
+#             max_weight = max(find_max)
+#             # print "max_weight: {}".format(max_weight)
+#             max_index = containers_weight.index(max_weight)
+#             # print "max_index: {}".format(max_index)
+#             comparison_count += 1
+#             if max_weight + box <= container_capacity:
+#                 containers[max_index].append(box)
+#                 containers_weight[max_index] += box
+#                 placed = True
+#                 break
+#             else:
+#                 find_max[max_index] = 0
+#                 # print find_max
+#         comparison_count += 1
+#         if not placed:
+#             containers.append([])
+#             containers_count += 1
+#             containers[containers_count].append(box)
+#             containers_weight.append(box)
+#
+# print "********"
+# print "BFA: {}".format(containers)
+# print "Comparations: {}".format(comparison_count)
+# print "Conteiners: {}".format(len(containers))
+
+# Best Fit Algorithm
 containers = [[]]
 containers_count = 0
 containers_weight = [0]
 comparison_count = 0
-
-# Best Fit Algorithm
-for box in boxes:
-    comparison_count += 1
-    if (containers_weight[containers_count] + box) <= container_capacity:
-        containers[containers_count].append(box)
-        containers_weight[containers_count] += box
-    else:
-        placed = False
-        find_max = list(containers_weight)
-        find_max[containers_count] = 0
-        # print find_max
-        for iter in range(containers_count):
-            max_weight = max(find_max)
-            # print "max_weight: {}".format(max_weight)
-            max_index = containers_weight.index(max_weight)
-            # print "max_index: {}".format(max_index)
-            comparison_count += 1
-            if max_weight + box <= container_capacity:
-                containers[max_index].append(box)
-                containers_weight[max_index] += box
-                placed = True
-                break
-            else:
-                find_max[max_index] = 0
-                # print find_max
-        comparison_count += 1
-        if not placed:
-            containers.append([])
-            containers_count += 1
-            containers[containers_count].append(box)
-            containers_weight.append(box)
-
-print "********"
-print "BFA: {}".format(containers)
-print "Comparations: {}".format(comparison_count)
-print "Conteiners: {}".format(len(containers))
-
-# Best Fit Algorithm
-containers = [[]]
-containers_count = 0
-containers_weight = [0]
 best_fit = []
 
 for box in boxes:
@@ -162,8 +163,10 @@ for box in boxes:
         max_weight = 0
         best_fit = []
         for iter in range(containers_count):
+            comparison_count += 1
             if containers_weight[iter] + box <= container_capacity:
                 best_fit.append(containers_weight[iter])
+        comparison_count += 1
         if not best_fit:
             containers.append([])
             containers_count += 1
@@ -179,5 +182,6 @@ for box in boxes:
 
 print "********"
 print "BFA: {}".format(containers)
-
+print "Comparations: {}".format(comparison_count)
+print "Conteiners: {}".format(len(containers))
 
