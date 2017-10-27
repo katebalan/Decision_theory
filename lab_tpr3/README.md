@@ -67,8 +67,6 @@ The problem of packing in containers
 
 ### something.py
 ```
-/usr/bin/python2.7 /home/katya/studing/workspace/Decision_theory/lab_tpr3/something.py
-***************
 DATA: [83, 86, 77, 15, 93, 35, 86, 92, 49, 21, 62, 27, 90, 59, 63, 26, 40, 26, 72, 36]
 ***************
 NFA: [[83], [86], [77, 15], [93], [35], [86], [92], [49, 21], [62, 27], [90], [59], [63, 26], [40, 26], [72], [36]]
