@@ -1,30 +1,8 @@
-# import operator
-import itertools
-from collections import defaultdict
+# Lab 4
+_ПРИЙНЯТТЯ РІШЕНЬ ЗА ДОПОМОГОЮ МЕТОДІВ ГОЛОСУВАННЯ_
 
-document1 = open('1.txt', 'r')
-
-profiles = []
-print "Profiles: "
-
-for line in document1:
-    profiles.append([])
-    for symbol in line.split():
-        profiles[len(profiles) - 1].append(symbol)
-    print profiles[len(profiles) - 1]
-
-document1.close()
-
-document2 = open('2.txt', 'r')
-
-profiles_weight = []
-for number in document2.readline().split():
-    profiles_weight.append(int(number))
-
-document2.close()
-
-print "Profiles weight: {}".format(profiles_weight)
-
+Правило (метод) відносної більшості.
+```
 def relative_majority(profiles, profile_weight):
     result = {}
     for i in range(len(profiles[0])):
@@ -35,7 +13,9 @@ def relative_majority(profiles, profile_weight):
             result[profiles[0][i]] = int(profile_weight[i]) + temp
     winner = max(result, key=result.get)
     return winner
-
+```
+Правило Кондорсе.
+```
 def condorcet(profiles, profiles_weight):
     profiles_tranc = zip(* profiles)
     results = defaultdict(int)
@@ -49,7 +29,8 @@ def condorcet(profiles, profiles_weight):
         if (all((res > 0 if c == mini else res < 0) for (mini, maxi), res in results.items() if c in [mini, maxi])):
             return c
     return "can't be find"
-
-
-print "Winner (relative majority): {}".format(relative_majority(profiles, profiles_weight))
-print "Winner (Condorcet): {}".format(condorcet(profiles, profiles_weight))
+```
+Метод альтернативних голосів.
+```
+in process...
+```
