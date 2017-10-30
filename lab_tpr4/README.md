@@ -1,5 +1,5 @@
 # Lab 4
-_ПРИЙНЯТТЯ РІШЕНЬ ЗА ДОПОМОГОЮ МЕТОДІВ ГОЛОСУВАННЯ_
+_**DECISION-MAKING BY VOTING METHODS**_
 
 Правило (метод) відносної більшості.
 ```
@@ -20,9 +20,10 @@ def condorcet(profiles, profiles_weight):
     profiles_tranc = zip(* profiles)
     results = defaultdict(int)
     for iter in range(len(profiles_weight)):
-        for c1, c2 in itertools.combinations(profiles_tranc[iter], 2): # combinations('ABCD', 2) --> AB AC AD BC BD CD
+        for c1, c2 in itertools.combinations(profiles_tranc[iter], 2):
             assert (c1 != c2)
-            mini, maxi, res = (c1, c2, profiles_weight[iter]) if c1 < c2 else (c2, c1, -profiles_weight[iter])
+            mini, maxi, res = (c1, c2, profiles_weight[iter]) if c1 < c2 \
+                else (c2, c1, -profiles_weight[iter])
             results[mini, maxi] += res
     for c in {c for profile in profiles_tranc for c in profile}:
         # TO DO understand if statement
