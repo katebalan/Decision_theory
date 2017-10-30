@@ -26,7 +26,6 @@ def condorcet(profiles, profiles_weight):
                     else (c2, c1, -profiles_weight[iter])
             results[mini, maxi] += res
     for c in {c for profile in profiles_tranc for c in profile}:
-        # TO DO understand if statement
         if (all((res > 0 if c == mini else res < 0) \
                 for (mini, maxi), res in results.items() if c in [mini, maxi])):
             return c
