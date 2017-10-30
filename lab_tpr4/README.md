@@ -33,5 +33,22 @@ def condorcet(profiles, profiles_weight):
 ```
 Метод альтернативних голосів.
 ```
-in process...
+def alternative_votes_method(profiles, profiles_weight):
+    result = defaultdict(int)
+    profiles_count = len(profiles[0])
+    last = len(profiles[0]) - 1
+    while( last > 1 ):
+        for iter in range(profiles_count):
+            result[profiles[last][iter]] += profiles_weight[iter]
+
+        worst = max(result, key=result.get)
+
+        profiles_tranc = [list(i) for i in zip(* profiles)]
+        for profile in profiles_tranc:
+            profile.remove(worst)
+        profiles = [list(i) for i in zip(* profiles_tranc)]
+        result.clear()
+        last -= 1
+
+    return relative_majority(profiles, profiles_weight)
 ```
