@@ -23,11 +23,12 @@ def condorcet(profiles, profiles_weight):
         for c1, c2 in itertools.combinations(profiles_tranc[iter], 2):
             assert (c1 != c2)
             mini, maxi, res = (c1, c2, profiles_weight[iter]) if c1 < c2 \
-                else (c2, c1, -profiles_weight[iter])
+                    else (c2, c1, -profiles_weight[iter])
             results[mini, maxi] += res
     for c in {c for profile in profiles_tranc for c in profile}:
         # TO DO understand if statement
-        if (all((res > 0 if c == mini else res < 0) for (mini, maxi), res in results.items() if c in [mini, maxi])):
+        if (all((res > 0 if c == mini else res < 0) \
+                for (mini, maxi), res in results.items() if c in [mini, maxi])):
             return c
     return "can't be find"
 ```
