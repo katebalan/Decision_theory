@@ -2,7 +2,7 @@
 import itertools
 from collections import defaultdict
 
-document1 = open('1.txt', 'r')
+document1 = open('3.txt', 'r')
 
 profiles = []
 print "Profiles: "
@@ -15,7 +15,7 @@ for line in document1:
 
 document1.close()
 
-document2 = open('2.txt', 'r')
+document2 = open('4.txt', 'r')
 
 profiles_weight = []
 for number in document2.readline().split():
@@ -25,14 +25,10 @@ document2.close()
 
 print "Profiles weight: {}".format(profiles_weight)
 
-def relative_majority(profiles, profile_weight):
-    result = {}
+def relative_majority(profiles, profiles_weight):
+    result = defaultdict(int)
     for i in range(len(profiles[0])):
-        if profiles[0][i] not in result:
-            result[profiles[0][i]] = int(profile_weight[i])
-        else:
-            temp = result[profiles[0][i]]
-            result[profiles[0][i]] = int(profile_weight[i]) + temp
+        result[profiles[0][i]] += profiles_weight[i]
     winner = max(result, key=result.get)
     return winner
 
@@ -50,6 +46,26 @@ def condorcet(profiles, profiles_weight):
             return c
     return "can't be find"
 
+def alternative_votes_method(profiles, profiles_weight):
+    result = defaultdict(int)
+    profiles_count = len(profiles[0])
+    last = len(profiles[0]) - 1
+    while( last > 1 ):
+        for iter in range(profiles_count):
+            result[profiles[last][iter]] += profiles_weight[iter]
+
+        worst = max(result, key=result.get)
+
+        profiles_tranc = [list(i) for i in zip(* profiles)]
+        for profile in profiles_tranc:
+            profile.remove(worst)
+        profiles = [list(i) for i in zip(* profiles_tranc)]
+        result.clear()
+        last -= 1
+
+    return relative_majority(profiles, profiles_weight)
+
 
 print "Winner (relative majority): {}".format(relative_majority(profiles, profiles_weight))
 print "Winner (Condorcet): {}".format(condorcet(profiles, profiles_weight))
+print "Winner (method of alternative votes): {}".format(alternative_votes_method(profiles, profiles_weight))
