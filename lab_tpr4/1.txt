@@ -1,5 +1,4 @@
-5 4 2 2
-a c b a
-b a a b
-c b c d
-d d d c
+a c b
+b a a
+c b c
+d d d
