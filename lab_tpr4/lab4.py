@@ -2,7 +2,7 @@
 import itertools
 from collections import defaultdict
 
-document1 = open('3.txt', 'r')
+document1 = open('1.txt', 'r')
 
 profiles = []
 print "Profiles: "
@@ -15,7 +15,7 @@ for line in document1:
 
 document1.close()
 
-document2 = open('4.txt', 'r')
+document2 = open('2.txt', 'r')
 
 profiles_weight = []
 for number in document2.readline().split():
